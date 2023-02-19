@@ -1,0 +1,20 @@
+{
+  "name": "google-oauth",
+  "version": "1.0.0",
+  "description": "이 저장소의 코드는\r [http://a-mean-blog.com/ko/blog/단편강좌/_/Node-JS-서버에-구글-소셜-로그인-기능-넣기-2-2-코딩](http://a-mean-blog.com/ko/blog/단편강좌/_/Node-JS-서버에-구글-소셜-로그인-기능-넣기-2-2-코딩)에서 작성되었습니다.\r <br>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "mysql": "^2.18.1",
+    "passport": "^0.4.1",
+    "passport-google-oauth2": "^0.2.0"
+  }
+}

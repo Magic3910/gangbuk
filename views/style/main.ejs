@@ -1,0 +1,189 @@
+<style>@font-face {
+    font-family: 'GmarketSansLight';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+}
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+}
+@font-face {
+    font-family: 'GmarketSansBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+}
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+
+
+
+* {margin : 0; padding: 0; box-sizing: border-box;}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+header {
+    padding-top: 8px;
+    text-align: center;
+    background: white;
+    width: 100%;
+    height: 50px;
+}
+
+body{
+    overflow: hidden;
+    animation: fadein 1s;
+    background-color: white;
+}
+
+h3{
+    font-size: 30px;
+    font-family: 'GmarketSansBold';
+    color: black;
+    justify-content: center;
+    align-items: center;
+}
+
+.info{
+    background: linear-gradient(to right, #7f00ff, #e100ff, #7f00ff, #e100ff);
+    background-size: 300%;
+    color: white;
+    height: 250px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    animation: Gradients 10s infinite;
+    animation-direction: initial;
+}
+
+@-webkit-keyframes Gradients {
+    0%{background-position:left}
+    100%{background-position:right}
+}
+
+.info-text{
+    display: block;
+    margin: 10px;
+    padding: 75px;
+}
+
+#titleName{
+    text-align: center;
+    font-weight: normal;
+    font-size: 18px;
+    font-family: 'GmarketSansMedium', sans-serif;
+}
+
+#titleResult{
+    text-align: center;
+    font-size: 45px;
+    font-family: 'GmarketSansBold';
+    font-weight: bold;
+}
+
+.menu{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding-top: 10px;
+}
+
+.calendar {
+    font-family: 'GmarketSansMedium', sans-serif;
+    position: relative;
+    color: black;
+    border: 0;
+    display: block;
+    margin: 30px 20px; padding: 20px;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    letter-spacing: 3px;
+    font-size: 15px;
+    background-color: white;
+    box-shadow: 0 7px 15px rgba(0, 0, 0, 0.1);
+    outline: none;
+    border-radius: 25px;
+    background-size:200%
+}
+
+.coupon {
+    font-family: 'GmarketSansMedium', sans-serif;
+    position: relative;
+    color: black;
+    border: 0;
+    display: block;
+    margin: 30px 20px; padding: 20px;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    letter-spacing: 3px;
+    font-size: 15px;
+    background-color: white;
+    box-shadow: 0 7px 15px rgba(0, 0, 0, 0.1);
+    outline: none;
+    border-radius: 25px;
+    background-size:200%
+}
+
+.gotcha {
+    font-family: 'GmarketSansMedium', sans-serif;
+    color: black;
+    border: 0;
+    display: block;
+    margin: 30px 20px; padding: 20px;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    letter-spacing: 3px;
+    font-size: 15px;
+    background-color: white;
+    box-shadow: 0 7px 15px rgba(0, 0, 0, 0.1);
+    outline: none;
+    border-radius: 25px;
+    background-size:200%
+}
+
+.setting {
+    font-family: 'GmarketSansMedium', sans-serif;
+    color: black;
+    border: 0;
+    display: block;
+    margin: 30px 20px; padding: 20px;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    letter-spacing: 3px;
+    font-size: 15px;
+    background-color: white;
+    box-shadow: 0 7px 15px rgba(0, 0, 0, 0.1);
+    outline: none;
+    border-radius: 25px;
+    background-size:200%
+}
+
+.calendar img {
+    margin-top: 15px;
+    width: 60%;
+}
+
+.gotcha img {
+    margin-top: 13px;
+    width: 65%;
+}
+
+.coupon img {
+    margin-top: 12px;
+    width: 65%;
+}
+
+.setting img {
+    margin-top: 15px;
+    width: 60%;
+}</style>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<% if(!user) { %> <script>alert("로그인 후 접근이 가능합니다.");location.replace('/')</script> <% } %>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>강북페이 - 쿠폰등록</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('./style/coupon')%>
+    <link rel="shortcut icon" href="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png">
+</head>
+<body>
+    <header>
+        <img class="titleimg" src="https://raw.githubusercontent.com/HanSatCode/GangBukPay/master/img/Back.png" Onclick='location="/"'>
+        <div class="title">
+            <h3>강북페이</h3>
+        </div>
+    </header>
+    <article class="cart">
+        <h1 class="cart__title">쿠폰 입력</h1>
+        <section class="cart__body">
+          <form class="card p-2" action="/coupon/redeem" method="POST">
+                <input type="text" class="form-control" name="code" placeholder="쿠폰을 입력해주십시오.">
+                <div class="input-group-append">
+                  <button type="submit" class="btn btn-secondary">등록하기</button>
+                </div>
+            </form>
+        </section>
+    </article>
+</body>

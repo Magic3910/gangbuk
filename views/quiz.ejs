@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>강북페이 - 퀴즈풀기</title>
+  <%- include('./style/quiz')%>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <header>
+        <img class="titleimg" src="https://raw.githubusercontent.com/HanSatCode/GangBukPay/master/img/Back.png" Onclick='location="/"'>
+        <div class="title">
+            <h3 style="font-size: 30px;
+            font-family: 'GmarketSansBold';
+            color: black;
+            justify-content: center;
+            align-items: center;">강북 퀴즈</h3>
+        </div>
+    </header>
+<div class="grid" style="overflow:auto;">
+    <div id="quiz" class="centered grid__col--8">
+        <h2 id="question" class="headline-secondary--grouped"></h2>
+        <h3 id="score"></h3>
+        <p id="choice0"></p>
+        <button id="guess0" class="btn--default">선택</button>
+        <p id="choice1"></p>
+        <button id="guess1" class="btn--default">선택</button>
+        <p id="choice2"></p>
+        <button id="guess2" class="btn--default">선택</button>
+        <p id="choice3"></p>
+        <button id="guess3" class="btn--default">선택</button>
+        <footer>
+            <p id="progress">x 문제 중 y 번쨰</p>
+        </footer>
+    </div>
+</div>
+<!-- partial -->
+  <script>
+    function Quiz(questions) {
+    this.score = 0;
+    this.questions = questions;
+    this.currentQuestionIndex = 0;
+}
+
+Quiz.prototype.guess = function(answer) {
+    if(this.getCurrentQuestion().isCorrectAnswer(answer)) {
+        this.score++;
+    }
+    this.currentQuestionIndex++;
+};
+
+Quiz.prototype.getCurrentQuestion = function() {
+    return this.questions[this.currentQuestionIndex];
+};
+
+Quiz.prototype.hasEnded = function() {
+    return this.currentQuestionIndex >= this.questions.length;
+};
+function Question(text, choices, answer) {
+    this.text = text;
+    this.choices = choices;
+    this.answer = answer;
+}
+
+Question.prototype.isCorrectAnswer = function (choice) {
+    return this.answer === choice;
+};
+var QuizUI = {
+    displayNext: function () {
+        if (quiz.hasEnded()) {
+            this.displayScore();
+        } else {
+            this.displayQuestion();
+            this.displayChoices();
+            this.displayProgress();
+        }
+    },
+    displayQuestion: function() {
+        this.populateIdWithHTML("question", "Q. "+quiz.getCurrentQuestion().text);
+    },
+    displayChoices: function() {
+        var choices = quiz.getCurrentQuestion().choices;
+
+        for(var i = 0; i < choices.length; i++) {
+            this.populateIdWithHTML("choice" + i, choices[i]);
+            this.guessHandler("guess" + i, choices[i]);
+        }
+    },
+    displayScore: function() {
+        var gameOverHTML = "<h1>Game Over</h1>";
+        gameOverHTML += "<h2><%= user.displayName %> score is: " + quiz.score + "</h2>";
+        this.populateIdWithHTML("quiz", gameOverHTML);
+    },
+    
+    populateIdWithHTML: function(id, text) {
+        var element = document.getElementById(id);
+        element.innerHTML = text;
+    },
+    guessHandler: function(id, guess) {
+        var button = document.getElementById(id);
+        button.onclick = function() {
+            quiz.guess(guess);
+            QuizUI.displayNext();
+        }
+    },
+    
+    displayProgress: function() {
+        var currentQuestionNumber = quiz.currentQuestionIndex + 1;
+        this.populateIdWithHTML("progress", quiz.questions.length+" 문제 중 "+currentQuestionNumber+"문제");
+    }
+};
+//Create Questions
+var questions = [
+    new Question("강북고등학교의 초대 교장님은?", [ "정일수", "최여운", "이상문", "김일규" ], "정일수"),
+    new Question("What is the answer to the Ultimate Question of Life, the Universe, and Everything?", ["Pi","42", "Wah?", "I don't know"], "42"),
+    new Question("Do you love to code?", ["No","Yes", "Hell Yeah", "No"], "Hell Yeah"),
+    new Question("What's the best programming language?", ["Javascript","C#", "Php", "Python"], "Javascript"),
+    new Question("Is Jason Chan Awesome?", ["Yes","No", "Maybe", "He's okay"], "Yes")
+];
+
+//Create Quiz
+var quiz = new Quiz(questions);
+
+//Display Quiz
+QuizUI.displayNext();
+  </script>
+
+</body>
+</html>

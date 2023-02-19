@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<% if(!user) { %> <script>alert("로그인 후 접근이 가능합니다.");location.replace('/')</script> <% } %>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>강북페이 - 계정설정</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('./style/setting')%>
+    <link rel="shortcut icon" href="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png">
+</head>
+<body>
+    <header>
+        <img class="titleimg" src="https://raw.githubusercontent.com/HanSatCode/GangBukPay/master/img/Back.png" Onclick="history.back()">
+        <div class="title">
+            <h3>계정설정</h3>
+        </div>
+    </header>
+    <div class="menu">
+        <div class="logout" Onclick="location.replace('/auth/logout')">
+            <h4>로그아웃</h4>
+            <img src="https://raw.githubusercontent.com/google/material-design-icons/master/png/action/logout/materialicons/18dp/2x/baseline_logout_black_18dp.png">
+        </div>
+        <div class="logout" Onclick="location.replace('/admin/quiz')">
+            <h4>퀴즈관리(제작중)</h4>
+            <img src="https://raw.githubusercontent.com/google/material-design-icons/master/png/action/logout/materialicons/18dp/2x/baseline_logout_black_18dp.png">
+        </div>
+    </div>
+</body>

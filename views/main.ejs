@@ -1,0 +1,73 @@
+<% if(!user || !user?.email.includes('gangbuk.hs.kr')){ %>
+  <% if(!user?.email.includes('gangbuk.hs.kr')){ %> <script>alert("gangbuk.hs.kr 메일로만\n로그인이 가능합니다.")</script> <% } %>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>강북페이 - 로그인</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png">
+    <%- include('./style/login')%>
+</head> 
+<body>
+    <div class="box">
+        <h6>Early Access</h6>
+        <h1>강북페이</h1>
+        <button type="button" id="start" name="로그인" onclick="location.replace('auth/google');">시작하기</button>
+    </div>
+    <div class="caption">
+        <a href="https://github.com/Magic3910"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"></a>
+    </div>
+</body>
+<footer>
+    <div class="info">
+        <a>강북페이</a><br>
+        <a>Contents Copyrightⓒ 2022 Magic3910 <br></a>
+    </div>
+</footer>
+</html>
+<% } else { %>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>강북페이</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('./style/main')%>
+    <link rel="shortcut icon" href="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png">
+</head>
+<body>
+    <header>
+        <div class="title">
+            <h3>강북페이</h3>
+        </div>
+    </header>
+    <div class="info">
+        <div class="info-text">
+            <div id="titleName">안녕하세요 ! <%= user.displayName %> 님 !</div>
+                <div id="titleResult"><%= res.pay %> PAY</div>
+        </div>
+    </div>
+    <div class="menu">
+        <div class="top">
+            <div class="calendar" Onclick="location.href='/quiz'">
+                <h4>퀴즈풀기</h4>
+                <img src="https://raw.githubusercontent.com/HanSatCode/GangBukPay/master/img/calendar.png">
+            </div>
+            <div class="coupon" Onclick="location.href='/coupon'">
+                <h4>쿠폰등록</h4>
+                <img src="https://raw.githubusercontent.com/HanSatCode/GangBukPay/master/img/Coupon.png">
+            </div>
+        </div>
+        <div class="bottom"> 
+            <div class="gotcha" Onclick="location.href='gotcha.html'">
+                <h4>상품뽑기</h4>
+                <img src="https://raw.githubusercontent.com/HanSatCode/GangBukPay/master/img/Gotcha.png">
+            </div>
+            <div class="setting" Onclick="location.href='/setting'">
+                <h4>계정설정</h4>
+                <img src="https://raw.githubusercontent.com/HanSatCode/GangBukPay/master/img/Setting.png">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<% } %>
